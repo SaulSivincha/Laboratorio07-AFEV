@@ -1,0 +1,6 @@
+tcov reset
+print new Inventario().ProbarActualizar()
+print new Inventario().ProbarConsulta()
+print new Inventario().ProbarEliminar()
+tcov write vdm.tc
+rtinfo vdm.tc

@@ -1,0 +1,46 @@
+class Inventario
+
+instance variables
+  private stock : map nat to nat := {|->};
+
+operations
+  public AgregarProducto : nat * nat ==> ()
+  AgregarProducto(id, cantidad) ==
+    stock := stock ++ {id |-> cantidad}
+  pre cantidad >= 0;
+
+  public ActualizarCantidad : nat * nat ==> ()
+  ActualizarCantidad(id, cantidadNueva) ==
+    stock := stock ++ {id |-> cantidadNueva}
+  pre id in set dom stock and cantidadNueva >= 0;
+
+  public ConsultarCantidad : nat ==> nat
+  ConsultarCantidad(id) ==
+    return stock(id)
+  pre id in set dom stock;
+
+  public EliminarProducto : nat ==> ()
+  EliminarProducto(id) ==
+    stock := {id} <-: stock
+  pre id in set dom stock;
+
+  public ProbarActualizar : () ==> ()
+  ProbarActualizar() == (
+    AgregarProducto(1, 100);
+    ActualizarCantidad(1, 50)
+  );
+
+  public ProbarConsulta : () ==> nat
+  ProbarConsulta() == (
+    AgregarProducto(1, 10);
+    return ConsultarCantidad(1)
+  );
+
+  public ProbarEliminar : () ==> nat
+  ProbarEliminar() == (
+    AgregarProducto(1, 50);
+    EliminarProducto(1);
+    return 50
+  );
+
+end Inventario

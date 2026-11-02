@@ -1,6 +1,21 @@
-tcov reset
-print new Inventario().ProbarActualizar()
-print new Inventario().ProbarConsulta()
-print new Inventario().ProbarEliminar()
-tcov write vdm.tc
-rtinfo vdm.tc
+# Página 9 — comandos y salida mostrados en VDMTools
+Initializing specification ... done
+>> tcov reset
+>> print new Inventario().ProbarActualizar()
+()
+>> print new Inventario().ProbarConsulta()
+10
+>> print new Inventario().ProbarEliminar()
+50
+>> tcov write vdm.tc
+>> rtinfo vdm.tc
+100%  1 Inventario`ProbarConsulta
+100%  1 Inventario`ProbarEliminar
+100%  4 Inventario`AgregarProducto
+100%  1 Inventario`EliminarProducto
+100%  1 Inventario`ProbarActualizar
+100%  1 Inventario`ConsultarCantidad
+100%  1 Inventario`ActualizarCantidad
+100%    Inventario
+
+Total Coverage: 100%

@@ -1,0 +1,8 @@
+# Página 6 — Caso adicional descrito en el PDF
+tcov reset
+create md := new Monedero(100,[1,2,3,4])
+print md.Retirar(40)
+tcov write vdm.tc
+rtinfo vdm.tc
+
+# Resultado descrito: cobertura total 100%.
